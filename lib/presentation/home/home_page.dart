@@ -1,37 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pipo/core/context.dart';
+import 'package:pipo/cubits/cubits.dart';
+import 'package:pipo/domain/entities/pipo.dart';
 import 'package:pipo/domain/entities/user.dart';
 import 'package:pipo/presentation/colors.dart';
 import 'package:pipo/presentation/home/views/pipo_card.dart';
 import 'package:pipo/presentation/home/views/refresh_button.dart';
-import 'package:pipo/providers/providers.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final appContext = AppContext.of(context);
-    final backgrounds = ref.watch(backgroundProvider);
-    final pipos = ref.watch(pipoProvider);
-    final user = ref.watch(userProvider);
-
-    final lastBackground = backgrounds.isEmpty ? '' : backgrounds.last;
-    final lastPipo = pipos.isEmpty ? '' : pipos.last.text;
-
-    return Scaffold(
-      floatingActionButton: RefreshButton(
-        onPressed: () => _refresh(appContext, ref),
-      ),
-      backgroundColor: AppColors.light,
-      body: _content(
-        context,
-        lastBackground,
-        lastPipo,
-        user,
-      ),
+  Widget build(BuildContext context) {
+    return BlocBuilder<PipoCubit, List<Pipo>>(
+      builder: (context, pipos) {
+        final lastPipo = pipos.isEmpty ? '' : pipos.last.text;
+        return BlocBuilder<BackgroundCubit, List<String>>(
+          builder: (context, backgrounds) {
+            final lastBackground = backgrounds.isEmpty ? '' : backgrounds.last;
+            return Scaffold(
+              floatingActionButton: RefreshButton(
+                onPressed: () => _refresh(context),
+              ),
+              backgroundColor: AppColors.light,
+              body: BlocBuilder<UserCubit, User?>(
+                builder: (context, user) => _content(
+                  context,
+                  lastBackground,
+                  lastPipo,
+                  user,
+                ),
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -65,9 +69,9 @@ class HomePage extends ConsumerWidget {
     GoRouter.of(context).go('/user');
   }
 
-  void _refresh(AppContext appContext, WidgetRef ref) {
-    ref.read(backgroundProvider.notifier).generateNewOne();
-    ref.read(pipoProvider.notifier).getNewPipo(appContext.get());
-    ref.read(userProvider.notifier).getRandomUser(appContext.get());
+  void _refresh(BuildContext context) {
+    context.read<BackgroundCubit>().generateNewOne();
+    context.read<PipoCubit>().getNewPipo();
+    context.read<UserCubit>().getRandomUser();
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pipo/presentation/colors.dart';
+import 'package:pipo/providers/providers.dart';
 import 'package:pipo/router.dart';
 
 class PipoApp extends StatelessWidget {
@@ -7,12 +9,20 @@ class PipoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Pipo',
-      theme: ThemeData(
-        primarySwatch: createMaterialColor(AppColors.blue),
+    return MultiRepositoryProvider(
+      providers: repositories,
+      child: MultiBlocProvider(
+        providers: blocs,
+        child: Builder(builder: (context) {
+          return MaterialApp.router(
+            title: 'Pipo',
+            theme: ThemeData(
+              primarySwatch: createMaterialColor(AppColors.blue),
+            ),
+            routerConfig: appRouter,
+          );
+        }),
       ),
-      routerConfig: appRouter,
     );
   }
 }

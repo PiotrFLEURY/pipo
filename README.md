@@ -6,7 +6,7 @@ Example Flutter project to experiment clean code
 
 Try to make clean code as much as possible in Flutter using:
 
-* [Riverpod](https://pub.dev/packages/riverpod)
+* [BLoc](https://pub.dev/packages/flutter_bloc)
 * [Freezed](https://pub.dev/packages/freezed)
 * [Retrofit](https://pub.dev/packages/retrofit)
 * [Go Router](https://pub.dev/packages/go_router)

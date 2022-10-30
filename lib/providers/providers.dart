@@ -1,17 +1,49 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pipo/domain/entities/pipo.dart';
-import 'package:pipo/domain/entities/user.dart';
-import 'package:pipo/notifiers/notifiers.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pipo/cubits/cubits.dart';
+import 'package:pipo/data/repositories/pipo_repository_impl.dart';
+import 'package:pipo/data/repositories/random_user_repository_impl.dart';
+import 'package:pipo/data/sources/pipotron_api.dart';
+import 'package:pipo/data/sources/random_user_api.dart';
+import 'package:pipo/domain/repositories/pipo_repository.dart';
+import 'package:pipo/domain/repositories/user_repository.dart';
 
-final backgroundProvider =
-    StateNotifierProvider<BackgroundNotifier, List<String>>(
-  (ref) => BackgroundNotifier(),
-);
+final repositories = [
+  RepositoryProvider<Dio>(
+    create: (_) => Dio(),
+  ),
+  RepositoryProvider<PipotronApi>(
+    create: (context) => PipotronApi(
+      context.read(),
+    ),
+  ),
+  RepositoryProvider<RandomUserApi>(
+    create: (context) => RandomUserApi(
+      context.read(),
+    ),
+  ),
+  RepositoryProvider<PipoRepository>(
+    create: (context) => PipoRepositoryImpl(
+      context.read(),
+    ),
+  ),
+  RepositoryProvider<UserRepository>(
+    create: (context) => RandomUserRepositoryImpl(
+      context.read(),
+    ),
+  ),
+];
 
-final pipoProvider = StateNotifierProvider<PipoNotifier, List<Pipo>>((ref) {
-  return PipoNotifier();
-});
-
-final userProvider = StateNotifierProvider<UserNotifier, User?>((ref) {
-  return UserNotifier();
-});
+final blocs = <BlocProvider>[
+  BlocProvider<BackgroundCubit>(create: (_) => BackgroundCubit()),
+  BlocProvider<PipoCubit>(
+    create: (context) => PipoCubit(
+      pipoRepository: context.read(),
+    ),
+  ),
+  BlocProvider<UserCubit>(
+    create: (context) => UserCubit(
+      userRepository: context.read(),
+    ),
+  ),
+];
