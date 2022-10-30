@@ -3,9 +3,12 @@ import 'package:pipo/domain/entities/user.dart';
 import 'package:pipo/domain/repositories/user_repository.dart';
 
 class UserNotifier extends StateNotifier<User?> {
-  UserNotifier() : super(null);
+  final UserRepository userRepository;
+  UserNotifier(
+    this.userRepository,
+  ) : super(null);
 
-  Future<void> getRandomUser(UserRepository userRepository) async {
+  Future<void> getRandomUser() async {
     state = await userRepository.getRandomUser();
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pipo/core/context.dart';
 import 'package:pipo/domain/entities/user.dart';
 import 'package:pipo/presentation/colors.dart';
 import 'package:pipo/presentation/home/views/pipo_card.dart';
@@ -13,7 +12,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final appContext = AppContext.of(context);
     final backgrounds = ref.watch(backgroundProvider);
     final pipos = ref.watch(pipoProvider);
     final user = ref.watch(userProvider);
@@ -23,7 +21,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       floatingActionButton: RefreshButton(
-        onPressed: () => _refresh(appContext, ref),
+        onPressed: () => _refresh(ref),
       ),
       backgroundColor: AppColors.light,
       body: _content(
@@ -65,9 +63,9 @@ class HomePage extends ConsumerWidget {
     GoRouter.of(context).go('/user');
   }
 
-  void _refresh(AppContext appContext, WidgetRef ref) {
+  void _refresh(WidgetRef ref) {
     ref.read(backgroundProvider.notifier).generateNewOne();
-    ref.read(pipoProvider.notifier).getNewPipo(appContext.get());
-    ref.read(userProvider.notifier).getRandomUser(appContext.get());
+    ref.read(pipoProvider.notifier).getNewPipo();
+    ref.read(userProvider.notifier).getRandomUser();
   }
 }

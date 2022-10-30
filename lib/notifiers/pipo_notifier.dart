@@ -3,9 +3,12 @@ import 'package:pipo/domain/entities/pipo.dart';
 import 'package:pipo/domain/repositories/pipo_repository.dart';
 
 class PipoNotifier extends StateNotifier<List<Pipo>> {
-  PipoNotifier() : super([]);
+  final PipoRepository pipoRepository;
+  PipoNotifier(
+    this.pipoRepository,
+  ) : super([]);
 
-  Future<void> getNewPipo(PipoRepository pipoRepository) async {
+  Future<void> getNewPipo() async {
     final pipo = await pipoRepository.getPipo();
     state = [...state, pipo];
   }
