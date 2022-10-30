@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pipo/presentation/colors.dart';
+import 'package:pipo/presentation/style/colors.dart';
 
 class PipoCard extends StatelessWidget {
   final String backgroundImage;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/presentation/photo/views/galery.dart';
-import 'package:pipo/providers/providers.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/ui/photo/views/galery.dart';
+import 'package:pipo/presentation/states/providers/providers.dart';
 
 class PhotoPage extends ConsumerWidget {
   const PhotoPage({super.key});

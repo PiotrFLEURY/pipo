@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pipo/domain/entities/user.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/presentation/home/views/pipo_card.dart';
-import 'package:pipo/presentation/home/views/refresh_button.dart';
-import 'package:pipo/providers/providers.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/ui/home/views/pipo_card.dart';
+import 'package:pipo/presentation/ui/home/views/refresh_button.dart';
+import 'package:pipo/presentation/states/providers/providers.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pipo/domain/entities/user.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/providers/providers.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/states/providers/providers.dart';
 
 class UserPage extends ConsumerWidget {
   const UserPage({super.key});

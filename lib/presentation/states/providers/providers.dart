@@ -8,7 +8,7 @@ import 'package:pipo/domain/entities/pipo.dart';
 import 'package:pipo/domain/entities/user.dart';
 import 'package:pipo/domain/repositories/pipo_repository.dart';
 import 'package:pipo/domain/repositories/user_repository.dart';
-import 'package:pipo/notifiers/notifiers.dart';
+import 'package:pipo/presentation/states/notifiers/notifiers.dart';
 
 final dioProvider = Provider((ref) => Dio());
 
