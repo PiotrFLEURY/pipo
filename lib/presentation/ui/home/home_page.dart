@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pipo/cubits/cubits.dart';
+import 'package:pipo/presentation/states/cubits/cubits.dart';
 import 'package:pipo/domain/entities/pipo.dart';
 import 'package:pipo/domain/entities/user.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/presentation/home/views/pipo_card.dart';
-import 'package:pipo/presentation/home/views/refresh_button.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/ui/home/views/pipo_card.dart';
+import 'package:pipo/presentation/ui/home/views/refresh_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

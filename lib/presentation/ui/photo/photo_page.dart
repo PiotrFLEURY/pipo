@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pipo/cubits/background_cubit.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/presentation/photo/views/galery.dart';
+import 'package:pipo/presentation/states/cubits/background_cubit.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/ui/photo/views/galery.dart';
 
 class PhotoPage extends StatelessWidget {
   const PhotoPage({super.key});

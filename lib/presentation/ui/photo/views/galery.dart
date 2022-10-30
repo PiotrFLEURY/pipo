@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pipo/presentation/photo/views/button_bar.dart';
-import 'package:pipo/presentation/photo/views/pages.dart';
+import 'package:pipo/presentation/ui/photo/views/button_bar.dart';
+import 'package:pipo/presentation/ui/photo/views/pages.dart';
 
 class Galery extends StatefulWidget {
   final List<String> backgrounds;

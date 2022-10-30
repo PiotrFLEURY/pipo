@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:pipo/presentation/home/home_page.dart';
-import 'package:pipo/presentation/photo/photo_page.dart';
-import 'package:pipo/presentation/user/user_page.dart';
+import 'package:pipo/presentation/ui/home/home_page.dart';
+import 'package:pipo/presentation/ui/photo/photo_page.dart';
+import 'package:pipo/presentation/ui/user/user_page.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: <GoRoute>[

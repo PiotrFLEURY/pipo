@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pipo/cubits/cubits.dart';
+import 'package:pipo/presentation/states/cubits/cubits.dart';
 import 'package:pipo/domain/entities/user.dart';
-import 'package:pipo/presentation/colors.dart';
+import 'package:pipo/presentation/style/colors.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pipo/presentation/colors.dart';
-import 'package:pipo/providers/providers.dart';
+import 'package:pipo/presentation/style/colors.dart';
+import 'package:pipo/presentation/states/providers/providers.dart';
 import 'package:pipo/router.dart';
 
 class PipoApp extends StatelessWidget {

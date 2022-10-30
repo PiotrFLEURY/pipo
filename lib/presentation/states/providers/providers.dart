@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pipo/cubits/cubits.dart';
+import 'package:pipo/presentation/states/cubits/cubits.dart';
 import 'package:pipo/data/repositories/pipo_repository_impl.dart';
 import 'package:pipo/data/repositories/random_user_repository_impl.dart';
 import 'package:pipo/data/sources/pipotron_api.dart';
