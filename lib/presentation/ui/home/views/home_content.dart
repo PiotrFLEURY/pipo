@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:pipo/presentation/ui/home/views/views.dart';
 
+/// This is the first agnostic widget inside the page
+///
+/// An agnostic widget is a widget which only purpose is
+///   to display data in a view
+///
+/// It can:
+/// - get some data parameters
+/// - get some callbacks
+/// - references other agnostic widgets
+/// - be stateless or stateful
+///
+/// It should not:
+/// - perform business logic
+/// - perform data fetching
+/// - reference state management
+/// - reference any other widget type than agnostic widgets
+///
 class HomeContent extends StatelessWidget {
   final String background;
   final String pipo;

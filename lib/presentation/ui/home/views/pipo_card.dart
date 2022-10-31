@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pipo/presentation/ui/home/views/views.dart';
 
+///
+/// Agnostic widget
+///
+/// This is a view containing:
+/// - a background image
+/// - a text
+/// - user infos
+///
 class PipoCard extends StatelessWidget {
   final String background;
   final PipoTextView text;
