@@ -15,6 +15,10 @@ class UserInfos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (userName.isEmpty || userPicture.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
     return InkWell(
       onTap: onUserTap,
       child: Row(

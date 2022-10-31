@@ -13,10 +13,12 @@ class CardBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(backgroundImage),
-          fit: BoxFit.cover,
-        ),
+        image: backgroundImage.isEmpty
+            ? null
+            : DecorationImage(
+                image: NetworkImage(backgroundImage),
+                fit: BoxFit.cover,
+              ),
       ),
       child: child,
     );

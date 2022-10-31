@@ -22,3 +22,17 @@ The code was organized with Clean Architecture pattern inspiration.
 * [Random User](https://randomuser.me/)
 * [Pipotron](https://mypipotron.fr/api/)
 * [Picsum](https://picsum.photos/)
+
+## Guidelines
+
+* Clean code
+* [Effective Dart](https://dart.dev/guides/language/effective-dart)
+
+## Custom guidelines (TO DOCUMENT)
+
+* Tiny main
+* Referencing App
+* Static router
+* Static providers
+* Stateful Pages
+* Agnostic Widgets

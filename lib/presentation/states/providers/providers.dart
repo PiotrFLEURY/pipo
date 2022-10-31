@@ -64,7 +64,7 @@ final pipoProvider = StateNotifierProvider<PipoNotifier, List<Pipo>>((ref) {
 final latestPipoProvider = Provider<String>((ref) {
   final pipos = ref.watch(pipoProvider);
 
-  return pipos.isEmpty ? '' : pipos.last.text;
+  return pipos.isEmpty ? 'Click refresh button' : pipos.last.text;
 });
 
 final userProvider = StateNotifierProvider<UserNotifier, User?>((ref) {
