@@ -38,12 +38,12 @@ class HomePage extends ConsumerWidget {
         userPicture: userPicture,
         userName: userFullName,
         onUserTap: () => _onUserTap(context),
-        onCardTap: () => _onCardTap(context),
+        onTextTap: () => _onTextTap(context),
       ),
     );
   }
 
-  void _onCardTap(BuildContext context) {
+  void _onTextTap(BuildContext context) {
     GoRouter.of(context).go('/photo');
   }
 
