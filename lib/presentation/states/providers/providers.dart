@@ -49,12 +49,36 @@ final backgroundProvider =
   (ref) => BackgroundNotifier(),
 );
 
+final latestBackgroundProvider = Provider<String>((ref) {
+  final backgrounds = ref.watch(backgroundProvider);
+
+  return backgrounds.isEmpty ? '' : backgrounds.last;
+});
+
 final pipoProvider = StateNotifierProvider<PipoNotifier, List<Pipo>>((ref) {
   return PipoNotifier(
     ref.read(pipoRepositoryProvider),
   );
 });
 
+final latestPipoProvider = Provider<String>((ref) {
+  final pipos = ref.watch(pipoProvider);
+
+  return pipos.isEmpty ? '' : pipos.last.text;
+});
+
 final userProvider = StateNotifierProvider<UserNotifier, User?>((ref) {
   return UserNotifier(ref.read(randomUserRepositoryProvider));
+});
+
+final userPictureProvider = Provider<String>((ref) {
+  final user = ref.watch(userProvider);
+
+  return user?.picture ?? '';
+});
+
+final userFullNameProvider = Provider<String>((ref) {
+  final user = ref.watch(userProvider);
+
+  return user?.fullName ?? '';
 });
