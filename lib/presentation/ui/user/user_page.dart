@@ -10,6 +10,7 @@ class UserPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final User? user = ref.watch(userProvider);
+    final String userPicture = ref.watch(userPictureProvider);
 
     if (user == null) {
       return const Scaffold(
@@ -32,7 +33,7 @@ class UserPage extends ConsumerWidget {
             Hero(
               tag: 'user_picture',
               child: CircleAvatar(
-                backgroundImage: NetworkImage(user.picture),
+                backgroundImage: NetworkImage(userPicture),
                 radius: 96.0,
               ),
             ),
