@@ -4,10 +4,10 @@ import 'package:retrofit/retrofit.dart';
 
 part 'pipotron_api.g.dart';
 
-@RestApi(baseUrl: 'https://mypipotron.fr/api/')
+@RestApi(baseUrl: 'http://localhost:8080/')
 abstract class PipotronApi {
   factory PipotronApi(Dio dio, {String baseUrl}) = _PipotronApi;
 
-  @GET('/pipo')
+  @GET('/pipotron')
   Future<PipoModel> getPipo();
 }

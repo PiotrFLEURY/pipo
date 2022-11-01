@@ -12,11 +12,19 @@ class RandomUserRepositoryImpl with UserRepository {
   @override
   Future<User> getRandomUser() async {
     final randomUserResponse = await _randomUserApi.getRandomUsers(1);
+    final userPictureUri =
+        Uri.parse(randomUserResponse.results.first.picture.large);
     latestUser = User(
       firstName: randomUserResponse.results.first.name.first,
       lastName: randomUserResponse.results.first.name.last,
       email: randomUserResponse.results.first.email,
-      picture: randomUserResponse.results.first.picture.large,
+      picture: userPictureUri.replace(
+        scheme: 'http',
+        host: 'localhost',
+        port: 8080,
+        path: '/user_picture',
+        queryParameters: {'path': userPictureUri.path},
+      ).toString(),
     );
     return latestUser!;
   }

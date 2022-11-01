@@ -13,7 +13,7 @@ class _RandomUserApi implements RandomUserApi {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://randomuser.me/api/';
+    baseUrl ??= 'http://localhost:8080/';
   }
 
   final Dio _dio;
@@ -35,7 +35,7 @@ class _RandomUserApi implements RandomUserApi {
     )
             .compose(
               _dio.options,
-              '/',
+              '/user',
               queryParameters: queryParameters,
               data: _data,
             )

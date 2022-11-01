@@ -4,11 +4,11 @@ import 'package:retrofit/http.dart';
 
 part 'random_user_api.g.dart';
 
-@RestApi(baseUrl: 'https://randomuser.me/api/')
+@RestApi(baseUrl: 'http://localhost:8080/')
 abstract class RandomUserApi {
   factory RandomUserApi(Dio dio, {String baseUrl}) = _RandomUserApi;
 
-  @GET('/')
+  @GET('/user')
   Future<RandomUserResponse> getRandomUsers(
     @Query('results') int? results,
   );

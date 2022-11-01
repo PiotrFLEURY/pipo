@@ -13,7 +13,7 @@ class _PipotronApi implements PipotronApi {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://mypipotron.fr/api/';
+    baseUrl ??= 'http://localhost:8080/';
   }
 
   final Dio _dio;
@@ -34,7 +34,7 @@ class _PipotronApi implements PipotronApi {
     )
             .compose(
               _dio.options,
-              '/pipo',
+              '/pipotron',
               queryParameters: queryParameters,
               data: _data,
             )
